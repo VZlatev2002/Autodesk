@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Comment Scraper</title>
+    <!-- Import the he.js library -->
+<script src="https://cdn.jsdelivr.net/npm/he@1.2.0/dist/he.min.js"></script>
+
+<!-- Import the Tabulator library -->
+<link href="https://unpkg.com/tabulator-tables@4.9.3/dist/css/tabulator.min.css" rel="stylesheet">
+<script src="https://unpkg.com/tabulator-tables@4.9.3/dist/js/tabulator.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+  </head>
+  <body>
+    
+    <script type="text/javascript" src="/static/js/script.js" type="module"></script>
+    <h1>Comment Scraper</h1>
+    <form>
+      <label for="link">Enter the link to scrape comments:</label>
+      <input type="text" id="link" name="link">
+      <button type="button" onclick="scrapeComments()">Scrape Comments</button>
+    </form>
+    <div id="table-container"></div>
+  </body>
+</html>
