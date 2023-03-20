@@ -18,11 +18,14 @@ function scrapeComments() {
     return response.text();
   })
   .then(csvData => {
+    // Parse the CSV string into an array of objects
+    const rows = Papa.parse(csvData.trim(), { header: true }).data;
+
     const tableContainer = document.getElementById("table-container");
 
     // Create Tabulator table with parsed data
     const table = new Tabulator(tableContainer, {
-      data: csvData,
+      data: rows,
       layout: "fitColumns",
       responsiveLayout: "collapse",
       tooltips: true,
@@ -33,8 +36,8 @@ function scrapeComments() {
       resizableRows: true,
       columns: [
         { title: "ID", field: "ID", width: 50 },
-        { title: "User Name", field: "User Name", sorter: "string" },
-        { title: "Comment", field: "Comment", sorter: "string" }
+        { title: "User Name", field: "User Name", sorter: "array" },
+        { title: "Comment", field: "Comment", sorter: "array" }
       ]
     });
 
